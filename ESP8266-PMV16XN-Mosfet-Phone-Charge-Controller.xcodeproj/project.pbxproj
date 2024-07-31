@@ -6,10 +6,15 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXFileReference section */
+		2ACC851E2C59CD5200370D12 /* ESP8266-PMV16XNMosfet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ESP8266-PMV16XNMosfet"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		2ACC85172C59CD4000370D12 = {
 			isa = PBXGroup;
 			children = (
+				2ACC851E2C59CD5200370D12 /* ESP8266-PMV16XNMosfet */,
 			);
 			sourceTree = "<group>";
 		};
