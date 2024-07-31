@@ -1,0 +1,67 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXGroup section */
+		2ACC85172C59CD4000370D12 = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		2ACC85182C59CD4000370D12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+			};
+			buildConfigurationList = 2ACC851B2C59CD4000370D12 /* Build configuration list for PBXProject "ESP8266-PMV16XN-Mosfet-Phone-Charge-Controller" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2ACC85172C59CD4000370D12;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		2ACC851C2C59CD4000370D12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2ACC851D2C59CD4000370D12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ACC851B2C59CD4000370D12 /* Build configuration list for PBXProject "ESP8266-PMV16XN-Mosfet-Phone-Charge-Controller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ACC851C2C59CD4000370D12 /* Debug */,
+				2ACC851D2C59CD4000370D12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ACC85182C59CD4000370D12 /* Project object */;
+}
