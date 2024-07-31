@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoOTA.h>
  
-const char* ssid = "**";
-const char* password = "**";
+const char* ssid = "*";
+const char* password = "*";
 /*
 ESP8266 Rx Pin --220 ohm----PMV16XN(G)		            +5V			+5V
 (ESP01)					              |	                        |			|	
@@ -104,35 +104,22 @@ void loop() {
   int value = LOW;
   if (request.indexOf("/ON") != -1) {
     digitalWrite(ledPin, HIGH);
-    value = HIGH;
+  
   } 
   if (request.indexOf("/OFF") != -1){
     digitalWrite(ledPin, LOW);
-    value = LOW;
+   
   }
  
-  //Set ledPin according to the request
-  //digitalWrite(ledPin, value);
+  
    
   // Return the response
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: text/html");
   client.println(""); //  do not forget this one
-  client.println("<!DOCTYPE HTML>");
-  client.println("<html>");
-   
-  client.print("Led pin is now: ");
-   
-  if(value == HIGH) {
-    client.print("On");  
-  } else {
-    client.print("Off");
-  }
-  client.println("<br><br>");
-  client.println("Click <a href=\"/ON\">here</a> turn the LED on pin 2 ON<br>");
-  client.println("Click <a href=\"/OFF\">here turn the LED on pin 2 OFF<br>");
-  client.println("</html>");
- 
+
+  // close the connection:
+    client.stop();
   
 
   
