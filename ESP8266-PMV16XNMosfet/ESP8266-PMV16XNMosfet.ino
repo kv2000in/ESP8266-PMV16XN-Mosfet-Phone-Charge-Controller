@@ -3,6 +3,10 @@
  
 const char* ssid = "*";
 const char* password = "*";
+
+unsigned long previousMillis = 0;
+unsigned long interval = 43200000; // 12 hrs = 43,200,000 millis
+
 /*
 ESP8266 Rx Pin --220 ohm----PMV16XN(G)		            +5V			+5V
 (ESP01)					              |	                        |			|	
@@ -34,6 +38,8 @@ void setup() {
     delay(500);
   
   }
+  WiFi.setAutoReconnect(true);
+  WiFi.persistent(true);
    
   // Start the server
   server.begin();
@@ -81,6 +87,7 @@ void setup() {
  
 void loop() {
   ArduinoOTA.handle();
+  unsigned long currentMillis = millis();
   
   // Check if a client has connected
   WiFiClient client = server.available();
@@ -91,7 +98,7 @@ void loop() {
   // Wait until the client sends some data
   
   while(!client.available()){
-    delay(1);
+    yield();
   }
    
   // Read the first line of the request
@@ -114,13 +121,17 @@ void loop() {
   
    
   // Return the response
-  client.println("HTTP/1.1 200 OK");
-  client.println("Content-Type: text/html");
-  client.println(""); //  do not forget this one
+  //client.println("HTTP/1.1 200 OK");
+  //client.println("Content-Type: text/html");
+  //client.println(""); //  do not forget this one
+client.print(F("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\nOK "));
+
 
   // close the connection:
-    client.stop();
+    client.flush();
   
-
+if (currentMillis - previousMillis >=interval){
+  ESP.restart();
+  }
   
 }
