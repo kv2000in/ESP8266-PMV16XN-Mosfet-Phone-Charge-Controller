@@ -88,6 +88,9 @@ void setup() {
 void loop() {
   ArduinoOTA.handle();
   unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >=interval){
+  ESP.restart();
+  }
   
   // Check if a client has connected
   WiFiClient client = server.available();
@@ -130,8 +133,6 @@ client.print(F("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML
   // close the connection:
     client.flush();
   
-if (currentMillis - previousMillis >=interval){
-  ESP.restart();
-  }
+
   
 }
