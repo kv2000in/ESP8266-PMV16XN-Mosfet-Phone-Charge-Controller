@@ -98,16 +98,14 @@ void loop() {
     return;
   }
    
-  // Wait until the client sends some data
-  
-  while(!client.available()){
-    yield();
-  }
+  Serial.println(F("new client"));
+
+  client.setTimeout(5000); // default is 1000
    
   // Read the first line of the request
   String request = client.readStringUntil('\r');
   
-  client.flush();
+
    
   // Match the request
  
@@ -122,14 +120,18 @@ void loop() {
   }
  
   
-   
-  // Return the response
-  //client.println("HTTP/1.1 200 OK");
-  //client.println("Content-Type: text/html");
-  //client.println(""); //  do not forget this one
+     // read/ignore the rest of the request
+  // do not client.flush(): it is for output only, see below
+  while (client.available()) {
+    // byte by byte is not very efficient
+    client.read();
+  }
+
 client.print(F("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\nOK "));
 
-
+// The client will actually be *flushed* then disconnected
+  // when the function returns and 'client' object is destroyed (out-of-scope)
+  // flush = ensure written data are received by the other side
   // close the connection:
     client.flush();
   
